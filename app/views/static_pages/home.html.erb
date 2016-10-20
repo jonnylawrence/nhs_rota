@@ -5,14 +5,16 @@
     <title><%= yield(:title) %></title>
   </head>
   <body>
+    <%= link_to image_tag("nhs.jpeg", alt: "NHS logo"),
+              'http://rubyonrails.org/' %>
+
     <div class="center jumbotron">
-    <h1>CAMS Rota Scheduler</h1>
+    <h1>On-Call Rota Scheduler</h1>
     <p>
       This is the home page for the doctor rota sample application.
     </p>
      <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
   </div>
-  <%= link_to image_tag("nhs.jpeg", alt: "NHS logo"),
-            'http://rubyonrails.org/' %>
+
   </body>
 </html>
