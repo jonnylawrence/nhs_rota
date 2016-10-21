@@ -1,3 +1,15 @@
+<% provide(:title, @doctor.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="doctor_info">
+      <h1>
+        <%= gravatar_for @doctor %>
+        <%= @doctor.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
+
 <p id="notice"><%= notice %></p>
 
 <p>

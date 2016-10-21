@@ -10,6 +10,7 @@ class DoctorsController < ApplicationController
   # GET /doctors/1
   # GET /doctors/1.json
   def show
+    @doctor = Doctor.find(params[:id])
   end
 
   # GET /doctors/new
@@ -25,6 +26,7 @@ class DoctorsController < ApplicationController
   # POST /doctors.json
   def create
     @doctor = Doctor.new(doctor_params)
+    #@doctor = Doctor.new(params[:doctor])
 
     respond_to do |format|
       if @doctor.save
@@ -69,6 +71,7 @@ class DoctorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def doctor_params
-      params.require(:doctor).permit(:name, :email)
+      params.require(:doctor).permit(:name, :email, :password,
+                             :password_confirmation)
     end
 end
