@@ -30,6 +30,8 @@ class DoctorsController < ApplicationController
 
     respond_to do |format|
       if @doctor.save
+        log_in @doctor
+        flash[:success] = "Welcome to the NHS rota manager"
         format.html { redirect_to @doctor, notice: 'Doctor was successfully created.' }
         format.json { render :show, status: :created, location: @doctor }
       else
