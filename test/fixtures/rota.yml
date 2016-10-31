@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Date: 2016-10-31
+  First_on_call_day: MyText
+  First_on_call_nights: MyText
+  Second_on_call: MyText
+
+two:
+  Date: 2016-10-31
+  First_on_call_day: MyText
+  First_on_call_nights: MyText
+  Second_on_call: MyText

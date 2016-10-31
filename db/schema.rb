@@ -10,21 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021102358) do
+ActiveRecord::Schema.define(version: 20161031185431) do
 
   create_table "doctors", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "password_digest"
+    t.string   "rememember_digest"
+    t.boolean  "consultant"
   end
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
-    t.string   "rota_docot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "rota", force: :cascade do |t|
+    t.date     "Date"
+    t.text     "First_on_call_day"
+    t.text     "First_on_call_nights"
+    t.text     "Second_on_call"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
 end
