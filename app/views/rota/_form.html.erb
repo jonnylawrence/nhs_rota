@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+
+<div class="field">
+   <%= f.label "Location" %>
+   <%= f.collection_select(:location_id, Location.all, :id, :name) %>
+ </div>
+
   <div class="field">
     <%= f.label :Date %>
     <%= f.date_select :Date %>

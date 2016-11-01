@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031185431) do
+ActiveRecord::Schema.define(version: 20161101185354) do
 
   create_table "doctors", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20161031185431) do
     t.text     "Second_on_call"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "location_id"
+    t.index ["location_id"], name: "index_rota_on_location_id"
   end
 
 end

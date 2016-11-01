@@ -1,10 +1,12 @@
 class RotaController < ApplicationController
   before_action :set_rotum, only: [:show, :edit, :update, :destroy]
 
+@locations = Location.all
+
   # GET /rota
   # GET /rota.json
   def index
-    @rota = Rotum.all
+    @rota = Rotum.all.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /rota/1
@@ -69,6 +71,6 @@ class RotaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rotum_params
-      params.require(:rotum).permit(:Date, :First_on_call_day, :First_on_call_nights, :Second_on_call)
+      params.require(:rotum).permit(:Date, :First_on_call_day, :First_on_call_nights, :Second_on_call, :location_id)
     end
 end
