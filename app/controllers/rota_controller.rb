@@ -6,7 +6,7 @@ class RotaController < ApplicationController
   # GET /rota
   # GET /rota.json
   def index
-    @rota = Rotum.all.paginate(page: params[:page], per_page: 5)
+    @rota = Rotum.all.paginate(page: params[:page], per_page: 15)
   end
 
   # GET /rota/1

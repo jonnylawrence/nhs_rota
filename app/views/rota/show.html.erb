@@ -1,24 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="container">
+<table class="table table-bordered">
+
+<tr>
+  <td>
+  <strong>Location:</strong>
+  <%= @rotum.location.name %>
+</td>
+</tr>
+<tr>
+  <td>
   <strong>Date:</strong>
   <%= @rotum.Date %>
-</p>
-
-<p>
+</td>
+</tr>
+<tr>
+  <td>
   <strong>1st on call day:</strong>
   <%= @rotum.First_on_call_day %>
-</p>
-
-<p>
+</td>
+</tr>
+<tr>
+  <td>
   <strong>1st on call nights:</strong>
   <%= @rotum.First_on_call_nights %>
-</p>
-
-<p>
+  </td>
+</tr>
+<tr>
+  <td>
   <strong>2nd on call:</strong>
   <%= @rotum.Second_on_call %>
-</p>
+</td>
+</tr>
+
+</table>
+</div>
 
 <%= link_to 'Edit', edit_rotum_path(@rotum) %> |
 <%= link_to 'Back', rota_path %>

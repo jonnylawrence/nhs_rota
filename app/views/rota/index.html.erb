@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Rota</h1>
+<div class="container">
 <%= will_paginate @rota %>
-<table>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th class="rdoctor">Location</th>
@@ -30,6 +32,8 @@
   </tbody>
 </table>
 <%= will_paginate @rota %>
+<div>
+
 <br>
 
-<%= link_to 'New Rotum', new_rotum_path %>
+<%= link_to 'New Rota', new_rotum_path %>
