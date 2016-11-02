@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.6.1'
 
-set :application, 'nhs rota scheduler'
+set :application, 'nhsscheduler'
 set :repo_url, 'git@jonnylawrence/nhs_rota.git'
 set :branch, :master
 set :deploy_to, '/var/www/nhsscheduler'
