@@ -21,9 +21,9 @@
       <tr>
         <td class="rdate"><%= rotum.location.name if rotum.location %></td>
         <td class="rdate"><%= rotum.Date %></td>
-        <td class="rdoctor"><%= rotum.First_on_call_day_id %></td>
-        <td class="rdoctor"><%= rotum.First_on_call_nights_id %></td>
-        <td class="rdoctor"><%= rotum.Second_on_call_id %></td>
+        <td class="rdoctor"><%= rotum.First_on_call_day.name %></td>
+        <td class="rdoctor"><%= rotum.First_on_call_nights.name %></td>
+        <td class="rdoctor"><%= rotum.Second_on_call.name %></td>
         <td><%= link_to 'Show', rotum %></td>
         <td><%= link_to 'Edit', edit_rotum_path(rotum) %></td>
         <td><%= link_to 'Destroy', rotum, method: :delete, data: { confirm: 'Are you sure?' } %></td>

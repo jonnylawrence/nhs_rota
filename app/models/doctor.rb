@@ -1,8 +1,10 @@
 class Doctor < ApplicationRecord
 
-  has_many :rotum, foreign_key: 'First_on_call_day_id'
-  has_many :rotum, foreign_key: 'Second_on_call_id'
-  has_many :rotum, foreign_key: 'First_on_call_nights_id'
+has_many :Rotum
+
+  #has_many :rotum, :class_name="Rotum", foreign_key: 'First_on_call_day_id'
+  #has_many :rotum, :class_name="Rotum", foreign_key: 'Second_on_call_id'
+  #has_many :rotum, :class_name="Rotum", foreign_key: 'First_on_call_nights_id'
 
   attr_accessor :remember_token
 
