@@ -19,6 +19,7 @@ class RotaController < ApplicationController
     @rotum = Rotum.new
   end
 
+
   # GET /rota/1/edit
   def edit
   end
