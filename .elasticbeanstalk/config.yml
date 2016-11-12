@@ -1,0 +1,14 @@
+branch-defaults:
+  master:
+    environment: nhsscheduler-1
+environment-defaults:
+  nhsscheduler-1:
+    branch: null
+    repository: null
+global:
+  application_name: nhs scheduler
+  default_ec2_keyname: null
+  default_platform: 64bit Amazon Linux 2016.09 v2.2.0 running Ruby 2.3 (Puma)
+  default_region: us-west-2
+  profile: eb-cli
+  sc: git
