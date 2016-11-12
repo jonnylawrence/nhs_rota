@@ -1,6 +1,9 @@
 class Doctor < ApplicationRecord
 
-has_one :rotum
+  has_many :rotum, foreign_key: 'First_on_call_day_id'
+  has_many :rotum, foreign_key: 'Second_on_call_id'
+  has_many :rotum, foreign_key: 'First_on_call_nights_id'
+
   attr_accessor :remember_token
 
   before_save { self.email = email.downcase }

@@ -71,6 +71,6 @@ class RotaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rotum_params
-      params.require(:rotum).permit(:Date, :First_on_call_day, :First_on_call_nights, :Second_on_call, :location_id)
+      params.require(:rotum).permit(:Date, :First_on_call_day_id, :First_on_call_nights_id, :Second_on_call_id, :location_id)
     end
 end

@@ -24,17 +24,17 @@
 
   <div class="field">
     <%= f.label :First_on_call_day %>
-    <%= f.text_area :First_on_call_day %>
+    <%= f.collection_select(:First_on_call_day_id, Doctor.all, :id, :name) %>
   </div>
 
   <div class="field">
     <%= f.label :First_on_call_nights %>
-    <%= f.text_area :First_on_call_nights %>
+    <%= f.collection_select(:First_on_call_nights_id, Doctor.all, :id, :name) %>
   </div>
 
   <div class="field">
     <%= f.label :Second_on_call %>
-    <%= f.text_area :Second_on_call %>
+        <%= f.collection_select(:Second_on_call_id, Doctor.where('consultant = ?',true), :id, :name) %>
   </div>
 
   <div class="actions">

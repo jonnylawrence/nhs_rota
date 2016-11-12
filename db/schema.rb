@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101185354) do
+ActiveRecord::Schema.define(version: 20161112101253) do
 
   create_table "doctors", force: :cascade do |t|
     t.string   "name"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20161101185354) do
     t.string   "password_digest"
     t.string   "rememember_digest"
     t.boolean  "consultant"
+  end
+
+  create_table "doctors_rota", id: false, force: :cascade do |t|
+    t.integer "rotum_id",  null: false
+    t.integer "doctor_id", null: false
+    t.index ["doctor_id", "rotum_id"], name: "index_doctors_rota_on_doctor_id_and_rotum_id"
+    t.index ["rotum_id", "doctor_id"], name: "index_doctors_rota_on_rotum_id_and_doctor_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -33,9 +40,15 @@ ActiveRecord::Schema.define(version: 20161101185354) do
     t.text     "First_on_call_day"
     t.text     "First_on_call_nights"
     t.text     "Second_on_call"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "location_id"
+    t.integer  "First_on_call_nights_id"
+    t.integer  "Second_on_call_id"
+    t.integer  "First_on_call_day_id"
+    t.index ["First_on_call_day_id"], name: "index_rota_on_First_on_call_day_id"
+    t.index ["First_on_call_nights_id"], name: "index_rota_on_First_on_call_nights_id"
+    t.index ["Second_on_call_id"], name: "index_rota_on_Second_on_call_id"
     t.index ["location_id"], name: "index_rota_on_location_id"
   end
 
