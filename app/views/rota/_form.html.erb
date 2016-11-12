@@ -34,7 +34,12 @@
 
   <div class="field">
     <%= f.label :Second_on_call %>
-        <%= f.collection_select(:Second_on_call_id, Doctor.where('consultant = ?',true), :id, :name) %>
+    <%= f.collection_select(:Second_on_call_id, Doctor.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Consultant %>
+    <%= f.collection_select(:Consultant_id, Doctor.where('consultant = ?',true), :id, :name) %>
   </div>
 
   <div class="actions">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112132016) do
+ActiveRecord::Schema.define(version: 20161112141738) do
 
   create_table "doctors", force: :cascade do |t|
     t.string   "name"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20161112132016) do
     t.integer  "First_on_call_nights_id"
     t.integer  "Second_on_call_id"
     t.integer  "First_on_call_day_id"
+    t.integer  "Consultant_id"
+    t.index ["Consultant_id"], name: "index_rota_on_Consultant_id"
     t.index ["First_on_call_day_id"], name: "index_rota_on_First_on_call_day_id"
     t.index ["First_on_call_nights_id"], name: "index_rota_on_First_on_call_nights_id"
     t.index ["Second_on_call_id"], name: "index_rota_on_Second_on_call_id"
