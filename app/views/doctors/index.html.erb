@@ -17,7 +17,13 @@
       <tr>
         <td><%= doctor.name %></td>
         <td><%= doctor.email %></td>
-        <td><%= doctor.consultant %></td>
+        <td>
+          <% if doctor.consultant? %>
+          <%= link_to image_tag("consultant.png", alt: "consultant", size: "20") %>
+          <% else %>
+          <%= link_to image_tag("spr.png", alt: "spr", size: "20") %>
+          <% end %>
+          </td>
         <td><%= link_to 'Show', doctor %></td>
         <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
         <td><%= link_to 'Destroy', doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,7 +32,12 @@
   </tbody>
 </table>
 </div>
-
 <br>
-
 <%= link_to 'New Doctor', new_doctor_path %>
+<br>
+<p>
+Consultant:
+  <%= link_to image_tag("consultant.png", alt: "consultant", size: "20") %>
+SPR:
+  <%= link_to image_tag("spr.png", alt: "spr", size: "20") %>
+</p>
