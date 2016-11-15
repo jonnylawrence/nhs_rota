@@ -22,11 +22,27 @@
   </div>
 
   <div class="field">
-    <%= f.label :consultant%>
+    <%= f.label :consultant %>
     <%= f.select :consultant, ['True','False'] %>
   </div>
 
+  <div class="field">
+    <%= f.label :contact_preference %>
+    <%= f.select :contact_preference, ['Email','SMS','None'] %>
   </div>
+
+  <div class="field">
+    <%= f.label :mobile %>
+    <%= f.text_field :mobile %> %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notification_group %>
+    <%= f.text_field :notification_group %>
+  </div>
+
+
+</div>
 
   <div class="actions">
     <%= f.submit %>

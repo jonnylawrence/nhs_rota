@@ -31,11 +31,16 @@ class RotaController < ApplicationController
 
     respond_to do |format|
       if @rotum.save
+        # MQ line
+        Publisher.publish("rota", @rotum.attributes)
+
         format.html { redirect_to @rotum, notice: 'Rotum was successfully created.' }
-        format.json { render :show, status: :created, location: @rotum }
+        format.json { render :index, status: :created, location: @rotum }
       else
         format.html { render :new }
         format.json { render json: @rotum.errors, status: :unprocessable_entity }
+
+
       end
     end
   end
@@ -46,7 +51,7 @@ class RotaController < ApplicationController
     respond_to do |format|
       if @rotum.update(rotum_params)
         format.html { redirect_to @rotum, notice: 'Rota was successfully updated.' }
-        format.json { render :show, status: :ok, location: @rotum }
+        format.json { render :index, status: :ok, location: @rotum }
       else
         format.html { render :edit }
         format.json { render json: @rotum.errors, status: :unprocessable_entity }
@@ -72,6 +77,6 @@ class RotaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rotum_params
-      params.require(:rotum).permit(:Date, :First_on_call_day_id, :First_on_call_nights_id, :Second_on_call_id, :Consultant_id,:location_id)
+      params.require(:rotum).permit(:Date, :First_on_call_day_id,:First_on_call_day_trade, :First_on_call_nights_id, :First_on_call_nights_trade,:Second_on_call_id,:Second_on_call_trade, :Consultant_id,:Consultant_trade,:location_id)
     end
 end

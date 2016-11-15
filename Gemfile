@@ -41,6 +41,7 @@ group :development, :test do
   gem 'guard'
   gem 'guard-minitest'
   gem 'railroady'
+gem 'bunny'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 end

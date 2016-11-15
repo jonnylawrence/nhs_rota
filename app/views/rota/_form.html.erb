@@ -28,8 +28,18 @@
   </div>
 
   <div class="field">
+    <%= f.label :First_on_call_day_trade %>
+    <%= f.select :First_on_call_day_trade, ['false','true'] %>
+  </div>
+
+  <div class="field">
     <%= f.label :First_on_call_nights %>
     <%= f.collection_select(:First_on_call_nights_id, Doctor.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :First_on_call_nights_trade %>
+    <%= f.select :First_on_call_nights_trade, ['false','true'] %>
   </div>
 
   <div class="field">
@@ -38,8 +48,18 @@
   </div>
 
   <div class="field">
+    <%= f.label :Second_on_call_trade %>
+    <%= f.select :Second_on_call_trade, ['false','true'] %>
+  </div>
+
+  <div class="field">
     <%= f.label :Consultant %>
     <%= f.collection_select(:Consultant_id, Doctor.where('consultant = ?',true), :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Consultant_trade %>
+    <%= f.select :Consultant_trade, ['false','true'] %>
   </div>
 
   <div class="actions">

@@ -23,9 +23,21 @@
 </tr>
 <tr>
   <td>
+  <strong>Trade 1st on call day:</strong>
+  <%= @rotum.First_on_call_day_trade %>
+</td>
+</tr>
+<tr>
+  <td>
   <strong>1st on call nights:</strong>
   <%= @rotum.First_on_call_nights.name %>
   </td>
+</tr>
+<tr>
+  <td>
+  <strong>Trade 1st on call nights:</strong>
+  <%= @rotum.First_on_call_nights_trade %>
+</td>
 </tr>
 <tr>
   <td>
@@ -33,10 +45,22 @@
   <%= @rotum.Second_on_call.name %>
 </td>
 </tr>
+
+  <td>
+  <strong>Trade 2nd on call:</strong>
+  <%= @rotum.Second_on_call_trade %>
+</td>
+</tr>
 <tr>
   <td>
   <strong>Consultant:</strong>
   <%= @rotum.Consultant.name %>
+</td>
+</tr>
+
+  <td>
+  <strong>Trade Consultant:</strong>
+  <%= @rotum.Consultant_trade %>
 </td>
 </tr>
 

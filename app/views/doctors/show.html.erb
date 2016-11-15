@@ -27,5 +27,20 @@
   <%= @doctor.consultant %>
 </p>
 
+<p>
+  <strong>Mobile:</strong>
+  <%= @doctor.mobile %>
+</p>
+
+<p>
+  <strong>Contact Preference:</strong>
+  <%= @doctor.contact_preference %>
+</p>
+
+<p>
+  <strong>Notification Group:</strong>
+  <%= @doctor.notification_group %>
+</p>
+
 <%= link_to 'Edit', edit_doctor_path(@doctor) %> |
 <%= link_to 'Back', doctors_path %>

@@ -15,6 +15,14 @@
       <%= f.label :consultant %>
       <%= f.select :consultant, ['True','False'] %>
 
+        <%= f.label :contact_preference %>
+        <%= f.select :contact_preference, ['Email','SMS','None'] %>
+
+        <%= f.label :mobile %>
+        <%= f.text_field :mobile %>
+
+        <%= f.label :notification_group %>
+        <%= f.text_field :notification_group %>
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>

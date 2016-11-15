@@ -5,12 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-#Doctor.destroy_all
+Doctor.destroy_all
+Location.destroy_all
+Rotum.destroy_all
+
 Doctor.create!([
 {
 name: "Jon Sutcliffe",
 email: "jonnylawrence@yahoo.co.uk",
 consultant: true,
+mobile: "0743-232344",
+contact_preference: "Email",
+notification_group: "None",
 password: "jon123",
 password_confirmation: "jon123"
 } ,
@@ -18,6 +24,9 @@ password_confirmation: "jon123"
 name: "Alison Sutcliffe",
 email: "alison@yahoo.co.uk",
 consultant: true,
+mobile: "0743-232344",
+contact_preference: "Email",
+notification_group: "None",
 password: "testdoctor",
 password_confirmation: "testdoctor"
 } ,
@@ -25,13 +34,19 @@ password_confirmation: "testdoctor"
 name: "Brian Crazy",
 email: "bcrazy@yahoo.co.uk",
 consultant: true,
+mobile: "0743-232344",
+contact_preference: "Email",
+notification_group: "None",
 password: "testdoctor",
 password_confirmation: "testdoctor"
 } ,
 {
-name: "colin Baker",
+name: "Colin Baker",
 email: "colin@yahoo.co.uk",
 consultant: false,
+mobile: "0743-232344",
+contact_preference: "Email",
+notification_group: "None",
 password: "testdoctor",
 password_confirmation: "testdoctor"
 } ,
@@ -39,6 +54,9 @@ password_confirmation: "testdoctor"
 name: "Daniel Darker",
 email: "dd@yahoo.co.uk",
 consultant: false,
+mobile: "0743-232344",
+contact_preference: "Email",
+notification_group: "None",
 password: "testdoctor",
 password_confirmation: "testdoctor"
 } ,
@@ -46,6 +64,9 @@ password_confirmation: "testdoctor"
 name: "Mark Nuts",
 email: "marknuts@yahoo.co.uk",
 consultant: false,
+mobile: "0743-232344",
+contact_preference: "Email",
+notification_group: "None",
 password: "testdoctor",
 password_confirmation: "testdoctor"
 } ,
@@ -53,16 +74,22 @@ password_confirmation: "testdoctor"
 name: "Alice Slasher",
 email: "AliceS@yahoo.co.uk",
 consultant: false,
+mobile: "0743-232344",
+contact_preference: "Email",
+notification_group: "None",
 password: "testdoctor",
 password_confirmation: "testdoctor"
 } ,
 {
-name: "mary popper",
+name: "Mary Popper",
 email: "mpopper@yahoo.co.uk",
 consultant: false,
+mobile: "0743-232344",
+contact_preference: "Email",
+notification_group: "None",
 password: "testdoctor",
 password_confirmation: "testdoctor"
-}]) 
+}])
 
 p "Created #{Doctor.count} doctors"
 
@@ -75,17 +102,4 @@ name: "St Helens/Knowsley"
 },
 {
 name: "Halton"
-}]) 
-
-Rotum.create!([
-{
-Date: "2016-11-20",
-location_id:  37,
-First_on_call_nights_id: 109,
-Second_on_call_id: 109,
-First_on_call_day_id: 109,
-Consultant_id: 112
-}]) 
-
-p "Created #{Rotum.count} rotas"
-
+}])
