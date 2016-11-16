@@ -11,8 +11,8 @@ Rotum.destroy_all
 
 Doctor.create!([
 {
-name: "Jon Sutcliffe",
-email: "jonnylawrence@yahoo.co.uk",
+name: "Homer Simpson",
+email: "Homer@yahoo.co.uk",
 consultant: true,
 mobile: "0743-232344",
 contact_preference: "Email",
@@ -21,8 +21,8 @@ password: "jon123",
 password_confirmation: "jon123"
 } ,
 {
-name: "Alison Sutcliffe",
-email: "alison@yahoo.co.uk",
+name: "Margarie Simpson",
+email: "MSimpson@yahoo.co.uk",
 consultant: true,
 mobile: "0743-232344",
 contact_preference: "Email",

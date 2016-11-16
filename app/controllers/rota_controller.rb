@@ -34,7 +34,7 @@ class RotaController < ApplicationController
     respond_to do |format|
       if @rotum.save
         # MQ line
-        Publisher.publish("rota", @rotum.attributes)
+        #Publisher.publish("rota", @rotum.attributes)
 
         format.html { redirect_to @rotum, notice: 'Rotum was successfully created.' }
         format.json { render :index, status: :created, location: @rotum }
