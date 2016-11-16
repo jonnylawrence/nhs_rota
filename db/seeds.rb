@@ -21,6 +21,16 @@ password: "jon123",
 password_confirmation: "jon123"
 } ,
 {
+name: "Jon",
+email: "j@yahoo.co.uk",
+consultant: true,
+mobile: "0743-999999",
+contact_preference: "SMS",
+notification_group: "None",
+password: "jon123",
+password_confirmation: "jon123"
+} ,
+{
 name: "Margarie Simpson",
 email: "MSimpson@yahoo.co.uk",
 consultant: true,
