@@ -6,7 +6,7 @@ class RotaController < ApplicationController
   # GET /rota
   # GET /rota.json
   def index
-    @rota = Rotum.all.paginate(page: params[:page], per_page: 10)
+    @rota = Rotum.all.paginate(page: params[:page], per_page: 8)
   end
 
   # GET /rota/1
@@ -35,14 +35,12 @@ class RotaController < ApplicationController
       if @rotum.save
         # MQ line
         #Publisher.publish("rota", @rotum.attributes)
-
-        format.html { redirect_to @rotum, notice: 'Rotum was successfully created.' }
+       flash[:success] = "Rota successfully updated"
+        format.html { redirect_to rota_url }
         format.json { render :index, status: :created, location: @rotum }
       else
         format.html { render :new }
         format.json { render json: @rotum.errors, status: :unprocessable_entity }
-
-
       end
     end
   end
