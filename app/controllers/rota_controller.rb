@@ -6,7 +6,7 @@ class RotaController < ApplicationController
   # GET /rota
   # GET /rota.json
   def index
-    @rota = Rotum.all.paginate(page: params[:page], per_page: 15)
+    @rota = Rotum.all.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /rota/1
@@ -16,6 +16,8 @@ class RotaController < ApplicationController
 
   # GET /rota/new
   def new
+  #  @doctor = Doctor.new(:name => "Locum", :consultant => false, :password => "jon123", :password_confirmation => "jon123")
+  #  @doctor.save
     @rotum = Rotum.new
   end
 
