@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  get '/new_30days', to: 'rota#new_30days'
+#  get '/rota/:id',  to: 'rota#index'
     resources :locations
     resources :doctors
     resources :rota

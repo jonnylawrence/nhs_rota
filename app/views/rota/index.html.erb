@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Rota</h1>
+Your name is <%= params[:doctor] %>
 <div class="container">
+
 <%= will_paginate @rota %>
 
 <table class="table table-striped">
@@ -59,6 +61,10 @@
 </table>
 <%= will_paginate @rota %>
 <div>
-  <%= link_to 'New Rota', new_rotum_path %>
+  <%= link_to '[New Rota]', new_rotum_path %>
+  <%= link_to '[Just me]', {:controller=>:rota, :action=>'index', :doctor => @current_doctor} %>
+  <%= link_to '[All]', {:controller=>:rota, :action=>'index'} %>
+  <%= link_to '[Market place]', {:controller=>:rota, :action=>'index',:market => 'yes'} %>
+
 <br><br>Trade a Session:
 <%= link_to image_tag("market.png", alt: "trade session", size: "20") %>

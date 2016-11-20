@@ -1,0 +1,62 @@
+<%= form_for(rotum) do |f| %>
+  <% if rotum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rotum.errors.count, "error") %> prohibited this rotum from being saved:</h2>
+
+      <ul>
+      <% rotum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="field">
+   <%= f.label "Location" %>
+   <%= f.collection_select(:location_id, Location.all, :id, :name,{}, {:style => "width:200px"}) %>
+ </div>
+
+  <div class="field">
+    <%= f.label :Date %>
+    <%= f.date_select :Date,{}, {:style => "width:100px"} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :First_on_call_day %>
+    <%= f.collection_select(:First_on_call_day_id, Doctor.all, :id, :name,{}, {:style => "width:300px"}) %>
+
+ <!-- <%= label_tag(:First_on_call_day_trade, "Trade session") %>
+<%= radio_button_tag(:First_on_call_day_trade, 'true') %>
+<%= label_tag(:First_on_call_day_trade, "Trade session") %>
+<%= radio_button_tag(:First_on_call_day_trade, 'false') %> -->
+
+    <%= f.label :First_on_call_day_trade %>
+    <!-- <%= f.select :First_on_call_day_trade, ['false','true'],{}, {:style => "width:100px"} %> -->
+<%= f.select :First_on_call_day_trade, options_for_select([['No','false'],['Yes','true']]),{}, {:style => "width:100px"} %>
+  </div>
+  <div class="field">
+    <%= f.label :First_on_call_nights %>
+    <%= f.collection_select(:First_on_call_nights_id, Doctor.all, :id, :name,{}, {:style => "width:300px"}) %>
+    <%= f.label :First_on_call_nights_trade %>
+    <%= f.select :First_on_call_nights_trade, options_for_select([['No','false'],['Yes','true']]),{}, {:style => "width:100px"} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Second_on_call %>
+    <%= f.collection_select(:Second_on_call_id, Doctor.all, :id, :name,{}, {:style => "width:300px"}) %>
+    <%= f.label :Second_on_call_trade %>
+    <%= f.select :Second_on_call_trade, options_for_select([['No','false'],['Yes','true']]),{}, {:style => "width:100px"} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Consultant %>
+    <%= f.collection_select(:Consultant_id, Doctor.where('consultant = ?',true), :id, :name,{}, {:style => "width:300px"}) %>
+    <%= f.label :Consultant_trade %>
+    <%= f.select :Consultant_trade, options_for_select([['No','false'],['Yes','true']]),{}, {:style => "width:100px"} %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -6,7 +6,23 @@ class RotaController < ApplicationController
   # GET /rota
   # GET /rota.json
   def index
-    @rota = Rotum.all.paginate(page: params[:page], per_page: 8)
+    if params[:doctor]
+      @this_doctor_id=Doctor.where("name = ?",params[:doctor])
+      @rota = Rotum.where("First_on_call_nights_id = ?", @this_doctor_id[0].id)
+      .or(Rotum.where("Second_on_call_id = ?", @this_doctor_id[0].id))
+      .or(Rotum.where("First_on_call_day_id = ?", @this_doctor_id[0].id))
+      .or(Rotum.where("Consultant_id = ?", @this_doctor_id[0].id))
+      .paginate(page: params[:page], per_page: 8)
+    elsif params[:market]
+       @rota = Rotum.where("First_on_call_nights_trade = ?", true)
+       .or(Rotum.where("Second_on_call_trade = ?",true))
+       .or(Rotum.where("First_on_call_day_trade = ?",true))
+       .or(Rotum.where("Consultant_trade = ?",true))
+       .paginate(page: params[:page], per_page: 8)
+    else
+      @current_doctor = current_doctor.name
+      @rota = Rotum.all.paginate(page: params[:page], per_page: 8)
+    end
   end
 
   # GET /rota/1
