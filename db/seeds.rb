@@ -123,3 +123,15 @@ name: "St Helens/Knowsley"
 {
 name: "Halton"
 }])
+
+ "Created #{Location.count} locations"
+
+# rota = Rotum.order(:created_at).take(6)
+# 50.times do
+#   content = Faker::Lorem.sentence(5)
+#   rota.each do |rota|
+#     rota.microposts.create!(content: content)
+#   end
+# end
+#
+# "Created #{Micropost.count} microposts"

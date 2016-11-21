@@ -23,6 +23,7 @@ Your name is <%= params[:doctor] %>
       <th class="rdoctor">Consultant</th>
       <!-- <th class="rdoctor"><%= link_to image_tag("market.png", alt: "market", size: "20") %></th> -->
 <th></th>
+<th class="rdoctor">Responses</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -52,6 +53,7 @@ Your name is <%= params[:doctor] %>
   <% if rotum.Consultant_trade? %>
   <%= link_to image_tag("market.png", alt: "trade", size: "20") %>
   <% end %></td>
+        <td><%= rotum.Microposts.all.count %></td>
         <td><%= link_to 'Show', rotum %></td>
         <td><%= link_to 'Edit', edit_rotum_path(rotum) %></td>
         <td><%= link_to 'Destroy', rotum, method: :delete, data: { confirm: 'Are you sure?' } %></td>

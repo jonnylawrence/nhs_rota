@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115200005) do
+ActiveRecord::Schema.define(version: 20161120203628) do
 
   create_table "doctors", force: :cascade do |t|
     t.string   "name"
@@ -18,11 +18,10 @@ ActiveRecord::Schema.define(version: 20161115200005) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "password_digest"
-    t.string   "rememember_digest"
-    t.boolean  "consultant"
     t.string   "mobile"
     t.string   "contact_preference"
     t.string   "notification_group"
+    t.boolean  "consultant"
   end
 
   create_table "doctors_rota", id: false, force: :cascade do |t|
@@ -36,6 +35,15 @@ ActiveRecord::Schema.define(version: 20161115200005) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "microposts", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "rotum_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rotum_id"], name: "index_microposts_on_rotum_id"
+    t.index [nil, "created_at"], name: "index_microposts_on_rota_id_and_created_at"
   end
 
   create_table "rota", force: :cascade do |t|
