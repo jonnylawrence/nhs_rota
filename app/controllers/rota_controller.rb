@@ -28,7 +28,7 @@ class RotaController < ApplicationController
   # GET /rota/1
   # GET /rota/1.json
   def show
-    @microposts = Micropost.where("id = ?",params[:id])
+    @microposts = Micropost.where("rotum_id = ?",params[:id])
     .paginate(page: params[:page])
   end
 

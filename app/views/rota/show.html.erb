@@ -1,82 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-<table class="table table-bordered">
-
-<tr>
-  <td>
-  <strong>Location:</strong>
-  <%= @rotum.location.name %>
-</td>
-</tr>
-<tr>
-  <td>
-  <strong>Date:</strong>
-  <%= @rotum.Date %>
-</td>
-</tr>
-<tr>
-  <td>
-  <strong>1st on call day:</strong>
-  <%= @rotum.First_on_call_day.name %>
-</td>
-</tr>
-<tr>
-  <td>
-  <strong>Trade 1st on call day:</strong>
-  <%= @rotum.First_on_call_day_trade %>
-</td>
-</tr>
-<tr>
-  <td>
-  <strong>1st on call nights:</strong>
-  <%= @rotum.First_on_call_nights.name %>
-  </td>
-</tr>
-<tr>
-  <td>
-  <strong>Trade 1st on call nights:</strong>
-  <%= @rotum.First_on_call_nights_trade %>
-</td>
-</tr>
-<tr>
-  <td>
-  <strong>2nd on call:</strong>
-  <%= @rotum.Second_on_call.name %>
-</td>
-</tr>
-
-  <td>
-  <strong>Trade 2nd on call:</strong>
-  <%= @rotum.Second_on_call_trade %>
-</td>
-</tr>
-<tr>
-  <td>
-  <strong>Consultant:</strong>
-  <%= @rotum.Consultant.name %>
-</td>
-</tr>
-
-  <td>
-  <strong>Trade Consultant:</strong>
-  <%= @rotum.Consultant_trade %>
-</td>
-</tr>
-
-</table>
-</div>
-
-<!-- <% if logged_in? %>
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="micropost_form">
-        <%= render 'shared/micropost_form' %>
-      </section>
-    </aside>
-  </div>
-<% end %> -->
-
 <div class="col-md-8">
   <% if @rotum.Microposts.any? %>
     <h3>Responses (<%= @rotum.Microposts.count %>)</h3>
@@ -87,5 +10,6 @@
   <% end %>
 </div>
 
-<%= link_to 'Edit', edit_rotum_path(@rotum) %> |
-<%= link_to 'Back', rota_path %>
+<%= link_to '[Edit]', edit_rotum_path(@rotum) %> |
+<%= link_to '[Back]', rota_path %>
+<%= link_to '[New Response]', {:controller=>:microposts, :action=>'new', :id => @rotum.id}  %>
