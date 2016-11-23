@@ -14,8 +14,9 @@ Rails.application.routes.draw do
 #  get '/rota/:id',  to: 'rota#index'
     resources :locations
     resources :doctors
-    resources :rota
-    resources :microposts
+  resources :rota do
+      resources :microposts
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

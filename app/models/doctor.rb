@@ -1,6 +1,7 @@
 class Doctor < ApplicationRecord
 
 has_many :Rotum
+has_many :Microposts
 
   #has_many :rotum, :class_name="Rotum", foreign_key: 'First_on_call_day_id'
   #has_many :rotum, :class_name="Rotum", foreign_key: 'Second_on_call_id'

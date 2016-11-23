@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120203628) do
+ActiveRecord::Schema.define(version: 20161123194228) do
 
   create_table "doctors", force: :cascade do |t|
     t.string   "name"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20161120203628) do
     t.integer  "rotum_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "doctor_id"
+    t.index ["doctor_id"], name: "index_microposts_on_doctor_id"
     t.index ["rotum_id"], name: "index_microposts_on_rotum_id"
     t.index [nil, "created_at"], name: "index_microposts_on_rota_id_and_created_at"
   end

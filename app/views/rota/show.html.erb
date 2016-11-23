@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <div class="col-md-8">
   <% if @rotum.Microposts.any? %>
     <h3>Responses (<%= @rotum.Microposts.count %>)</h3>
@@ -10,6 +9,13 @@
   <% end %>
 </div>
 
-<%= link_to '[Edit]', edit_rotum_path(@rotum) %> |
+<%= form_for([@rotum, @rotum.Microposts.new]) do |f| %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+    <%= f.hidden_field :doctor_id, :value => @this_doctor_id[0].id %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to '[Edit related rota]', edit_rotum_path(@rotum) %> |
 <%= link_to '[Back]', rota_path %>
-<%= link_to '[New Response]', {:controller=>:microposts, :action=>'new', :id => @rotum.id}  %>

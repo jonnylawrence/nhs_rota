@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Rota</h1>
-Your name is <%= params[:doctor] %>
 <div class="container">
 
 <%= will_paginate @rota %>
@@ -54,7 +53,7 @@ Your name is <%= params[:doctor] %>
   <%= link_to image_tag("market.png", alt: "trade", size: "20") %>
   <% end %></td>
         <td><%= rotum.Microposts.all.count %></td>
-        <td><%= link_to 'Show', rotum %></td>
+        <td><%= link_to 'Responses', rotum %></td>
         <td><%= link_to 'Edit', edit_rotum_path(rotum) %></td>
         <td><%= link_to 'Destroy', rotum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

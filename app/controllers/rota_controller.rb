@@ -1,5 +1,5 @@
 class RotaController < ApplicationController
-  before_action :set_rotum, only: [:show, :edit, :update, :destroy]
+  before_action :set_rotum, :set_doctor, only: [:show, :edit, :update, :destroy]
 
 @locations = Location.all
 
@@ -28,6 +28,7 @@ class RotaController < ApplicationController
   # GET /rota/1
   # GET /rota/1.json
   def show
+
     @microposts = Micropost.where("rotum_id = ?",params[:id])
     .paginate(page: params[:page])
   end
@@ -68,7 +69,7 @@ class RotaController < ApplicationController
   def update
     respond_to do |format|
       if @rotum.update(rotum_params)
-        format.html { redirect_to @rotum, notice: 'Rota was successfully updated.' }
+        format.html { redirect_to rota_url }
         format.json { render :index, status: :ok, location: @rotum }
       else
         format.html { render :edit }
@@ -91,6 +92,11 @@ class RotaController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_rotum
       @rotum = Rotum.find(params[:id])
+    end
+
+    def set_doctor
+        @current_doctor = current_doctor.name
+        @this_doctor_id=Doctor.where("name = ?",@current_doctor)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

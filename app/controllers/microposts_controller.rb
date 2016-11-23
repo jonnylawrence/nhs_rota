@@ -1,34 +1,33 @@
 class MicropostsController < ApplicationController
-  # before_action :logged_in_user, only: [:create, :destroy]
+  before_action :set_rotum, :logged_in_user
 
-  # GET /rota/new
-  def new
-    @micropost = Micropost.new
-  end
-
-  def show
-    @microposts = Micropost.where("rotum_id = ?",params[:id])
-    .paginate(page: params[:page])
-  end
-
+  # # GET /rota/new
+  # def new
+  #   @micropost = @rotum.Micropost.new
+  # end
 
     def create
-      @micropost = Micropost.new(micropost_params)
-    
+      @micropost = @rotum.Microposts.new(micropost_params)
       if @micropost.save
-        flash[:success] = "Micropost created!"
-        redirect_to controller: 'rota', action: 'show', id: micropost_params[:rotum_id]
+        redirect_to @rotum
       else
         flash[:success] = "Micropost creation failed!"
-        redirect_to controller: 'rota', action: 'show', id: micropost_params[:rotum_id]
+        redirect_to @rotum
       end
     end
 
     def destroy
+      @micropost = @rotum.Microposts.find(params[:id])
+      @micropost.destroy
+      redirect_to @rotum
     end
 
     private
+    def set_rotum
+      @rotum = Rotum.find(params[:rotum_id])
+    end
+
       def micropost_params
-        params.require(:micropost).permit(:content,:rotum_id)
+        params.require(:micropost).permit(:content, :doctor_id)
       end
 end

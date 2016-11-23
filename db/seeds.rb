@@ -8,6 +8,7 @@
 Doctor.destroy_all
 Location.destroy_all
 Rotum.destroy_all
+Micropost.destroy_all
 
 Doctor.create!([
 {
@@ -125,13 +126,3 @@ name: "Halton"
 }])
 
  "Created #{Location.count} locations"
-
-# rota = Rotum.order(:created_at).take(6)
-# 50.times do
-#   content = Faker::Lorem.sentence(5)
-#   rota.each do |rota|
-#     rota.microposts.create!(content: content)
-#   end
-# end
-#
-# "Created #{Micropost.count} microposts"
