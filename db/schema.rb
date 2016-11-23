@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20161123194228) do
     t.integer  "doctor_id"
     t.index ["doctor_id"], name: "index_microposts_on_doctor_id"
     t.index ["rotum_id"], name: "index_microposts_on_rotum_id"
-    t.index [nil, "created_at"], name: "index_microposts_on_rota_id_and_created_at"
+  #  t.index [nil, "created_at"], name: "index_microposts_on_rota_id_and_created_at"
   end
 
   create_table "rota", force: :cascade do |t|
