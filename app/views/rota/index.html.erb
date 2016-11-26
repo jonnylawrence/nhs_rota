@@ -1,6 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Rota</h1>
+<%= week_calendar number_of_weeks: 2, events: @rota do |date, start_date| %>
+
+  <%= date %>
+
+  <% @rota.each do |rotum| %>
+    <div>
+      <small>
+      <% if rotum.Date == date %>
+      <B><%= rotum.location.name %></B>
+      <br>
+      1stD-<%= rotum.First_on_call_day.name %>
+      <% if rotum.First_on_call_day_trade? %>
+      <b>*</b>
+      <% end %>
+      <br>
+      1stN-<%= rotum.First_on_call_nights.name %>
+      <% if rotum.First_on_call_nights_trade? %>
+      <b>*</b>
+      <% end %>
+      <br>
+      2nd-<%= rotum.Second_on_call.name  %>
+      <% if rotum.Second_on_call_trade? %>
+      <b>*</b>
+      <% end %>
+      <br>
+      C-<%= rotum.Consultant.name  %>
+      <% if rotum.Consultant_trade? %>
+      <b>*</b>
+      <% end %>
+       <% end %>
+     </small>
+    </div>
+  <% end %>
+<% end %>
+<br>
+<h1>Rota Management</h1>
+
 <div class="container">
 
 <%= will_paginate @rota %>
