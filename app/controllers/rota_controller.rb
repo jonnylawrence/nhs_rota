@@ -6,6 +6,7 @@ class RotaController < ApplicationController
   # GET /rota
   # GET /rota.json
   def index
+    @rota_cal = Rotum.all
     if params[:doctor]
       @this_doctor_id=Doctor.where("name = ?",params[:doctor])
       @rota = Rotum.where("First_on_call_nights_id = ?", @this_doctor_id[0].id)
@@ -21,7 +22,7 @@ class RotaController < ApplicationController
        .paginate(page: params[:page], per_page: 8)
     else
       @current_doctor = current_doctor.name
-      @rota = Rotum.all.paginate(page: params[:page], per_page: 8)
+      @rota = Rotum.all.paginate(page: params[:page], per_page: 20)
     end
   end
 

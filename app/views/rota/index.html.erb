@@ -1,35 +1,50 @@
 <p id="notice"><%= notice %></p>
+<h1>Rota Overview</h1>
+<%= week_calendar number_of_weeks: 2, events: @rota_cal do |date| %>
 
-<%= week_calendar number_of_weeks: 2, events: @rota do |date, start_date| %>
+  <span style="color:blue"><%= date %></span>
 
-  <%= date %>
-
-  <% @rota.each do |rotum| %>
+  <% @rota_cal.each do |rotum| %>
     <div>
       <small>
       <% if rotum.Date == date %>
       <B><%= rotum.location.name %></B>
       <br>
-      1stD-<%= rotum.First_on_call_day.name %>
       <% if rotum.First_on_call_day_trade? %>
+      <span style="color:red">
+          <b>*</b>
+      <% end %>
+      1stD-<%= rotum.First_on_call_day.name %>
+    </span>
+
+      <br>
+      <% if rotum.First_on_call_nights_trade? %>
+  <span style="color:red">
       <b>*</b>
       <% end %>
-      <br>
       1stN-<%= rotum.First_on_call_nights.name %>
       <% if rotum.First_on_call_nights_trade? %>
       <b>*</b>
       <% end %>
       <br>
+    </span>
+
+    <% if rotum.Second_on_call_trade? %>
+      <span style="color:red">
+    <b>*</b>
+    <% end %>
       2nd-<%= rotum.Second_on_call.name  %>
-      <% if rotum.Second_on_call_trade? %>
-      <b>*</b>
-      <% end %>
+    </span>
       <br>
-      C-<%= rotum.Consultant.name  %>
+
       <% if rotum.Consultant_trade? %>
+        <span style="color:red">
       <b>*</b>
       <% end %>
-       <% end %>
+      C-<%= rotum.Consultant.name  %>
+</span>
+
+      <% end %>
      </small>
     </div>
   <% end %>
