@@ -4,3 +4,4 @@
 #   http_host: 'example.org',
 #   https: false
 # )
+Audited.current_user_method = :authenticated_user

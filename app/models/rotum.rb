@@ -1,5 +1,5 @@
 class Rotum < ApplicationRecord
-
+audited
 belongs_to :First_on_call_day, :class_name => "Doctor"
 belongs_to :Second_on_call, :class_name => "Doctor"
 belongs_to :First_on_call_nights, :class_name => "Doctor"

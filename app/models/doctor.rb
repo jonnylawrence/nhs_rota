@@ -1,5 +1,5 @@
 class Doctor < ApplicationRecord
-
+audited
 has_many :Rotum
 has_many :Microposts
 
