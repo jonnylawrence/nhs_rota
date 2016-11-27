@@ -5,6 +5,7 @@ class DoctorsController < ApplicationController
   # GET /doctors.json
   def index
     @doctors = Doctor.all
+    @current_doctor ||= Doctor.find_by(id: session[:doctor_id])
   end
 
   # GET /doctors/1
@@ -75,6 +76,7 @@ class DoctorsController < ApplicationController
     def doctor_params
       params.require(:doctor).permit(:name, :email, :password,
                              :password_confirmation, :consultant,
-                             :mobile, :contact_preference, :notification_group)
+                             :mobile, :contact_preference, :notification_group,
+                             :admin)
     end
 end

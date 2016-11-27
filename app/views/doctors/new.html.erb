@@ -18,6 +18,17 @@
         <%= f.label :contact_preference %>
         <%= f.select :contact_preference, ['Email','SMS','None'] %>
 
+
+        <table>
+          <tr>
+            <td>
+              <%= f.label :admin %></td>
+            <td>
+          Yes<%= f.radio_button :admin, 'true' %></td><td>
+          No<%= f.radio_button :admin, 'false' %></td>
+        </tr>
+        </table>
+
         <%= f.label :mobile %>
         <%= f.text_field :mobile %>
 

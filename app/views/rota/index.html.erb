@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 <h1>Rota Overview</h1>
+I am <%= @current_doctor.name %><br>
+Admin <%= @current_doctor.admin %>
 <%= week_calendar number_of_weeks: 2, events: @rota_cal do |date| %>
 
-  <span style="color:blue"><%= date %></span>
+  <span style="color:blue"><%= date.strftime("%d %b %y") %></span>
 
   <% @rota_cal.each do |rotum| %>
     <div>
@@ -51,6 +53,11 @@
 <% end %>
 <br>
 <h1>Rota Management</h1>
+<%= link_to 'New Rota', new_rotum_path, :class => "btn btn-success" %>
+  <%= link_to 'Just me', {:controller=>:rota, :action=>'index', :doctor => @current_doctor}, :class => "btn btn-success" %>
+  <%= link_to 'All', {:controller=>:rota, :action=>'index'}, :class => "btn btn-success" %>
+  <%= link_to 'Market place', {:controller=>:rota, :action=>'index',:market => 'yes'}, :class => "btn btn-success" %>
+
 
 <div class="container">
 
@@ -86,37 +93,44 @@
         <td class="rdoctor"><%= rotum.First_on_call_day.name if rotum.First_on_call_day %></td>
         <td class="rdoctor">
     <% if rotum.First_on_call_day_trade? %>
-    <%= link_to image_tag("market.png", alt: "trade", size: "20") %>
+
+    <%= link_to image_tag("market.png", alt: "trade", size: "20"), edit_rotum_path(rotum) %>
   <% end %></td>
         <td class="rdoctor"><%= rotum.First_on_call_nights.name if rotum.First_on_call_nights %></td>
         <td class="rdoctor">
 <% if rotum.First_on_call_nights_trade? %>
-<%= link_to image_tag("market.png", alt: "trade", size: "20") %>
+<%= link_to image_tag("market.png", alt: "trade", size: "20"), edit_rotum_path(rotum) %>
 <% end %></td>
         <td class="rdoctor"><%= rotum.Second_on_call.name if rotum.Second_on_call %></td>
         <td class="rdoctor">
 <% if rotum.Second_on_call_trade? %>
-<%= link_to image_tag("market.png", alt: "trade", size: "20") %>
+<%= link_to image_tag("market.png", alt: "trade", size: "20"), edit_rotum_path(rotum) %>
 <% end %></td>
         <td class="rdoctor"><%= rotum.Consultant.name if rotum.Consultant  %></td>
         <td class="rdoctor">
   <% if rotum.Consultant_trade? %>
-  <%= link_to image_tag("market.png", alt: "trade", size: "20") %>
+  <%= link_to image_tag("market.png", alt: "trade", size: "20"), edit_rotum_path(rotum) %>
   <% end %></td>
         <td><%= rotum.Microposts.all.count %></td>
         <td><%= link_to 'Responses', rotum %></td>
         <td><%= link_to 'Edit', edit_rotum_path(rotum) %></td>
+
+        <% if current_doctor.admin == true %>
         <td><%= link_to 'Destroy', rotum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+        <td></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
 </table>
 <%= will_paginate @rota %>
 <div>
-  <%= link_to '[New Rota]', new_rotum_path %>
-  <%= link_to '[Just me]', {:controller=>:rota, :action=>'index', :doctor => @current_doctor} %>
-  <%= link_to '[All]', {:controller=>:rota, :action=>'index'} %>
-  <%= link_to '[Market place]', {:controller=>:rota, :action=>'index',:market => 'yes'} %>
+  <%= link_to 'New Rota', new_rotum_path, :class => "btn btn-success" %>
+  <%= link_to 'Just me', {:controller=>:rota, :action=>'index', :doctor => @current_doctor}, :class => "btn btn-success" %>
+  <%= link_to 'All', {:controller=>:rota, :action=>'index'}, :class => "btn btn-success" %>
+  <%= link_to 'Market place', {:controller=>:rota, :action=>'index',:market => 'yes'}, :class => "btn btn-success" %>
 
 <br><br>Trade a Session:
 <%= link_to image_tag("market.png", alt: "trade session", size: "20") %>

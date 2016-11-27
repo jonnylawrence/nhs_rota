@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126124852) do
+ActiveRecord::Schema.define(version: 20161127114009) do
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20161126124852) do
     t.string   "contact_preference"
     t.string   "notification_group"
     t.boolean  "consultant"
+    t.boolean  "admin"
   end
 
   create_table "doctors_rota", id: false, force: :cascade do |t|

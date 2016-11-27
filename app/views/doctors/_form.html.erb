@@ -41,8 +41,12 @@
     <%= f.text_field :notification_group %>
   </div>
 
-
-</div>
+    <% if current_doctor.admin == true %>
+  <div class="field">
+    <%= f.label :admin %>
+    <%= f.select :admin, ['true','false'] %>
+  </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>

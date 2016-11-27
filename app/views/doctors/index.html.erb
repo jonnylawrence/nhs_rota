@@ -1,13 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Doctors</h1>
+You are:<%= @current_doctor.name %><br>
+Admin:<%= @current_doctor.admin %>
 <div class="container">
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
 
-      <th>Consultant</th>
+      <th>Consult</th>
+      <th>Admin</th>
         <th>Email</th>
         <th>Mobile</th>
         <th>Preference</th>
@@ -28,14 +31,19 @@
           <%= link_to image_tag("spr.png", alt: "spr", size: "20") %>
           <% end %>
           </td>
+          <td><%= doctor.admin %></td>
         <td><%= doctor.email %></td>
         <td><%= doctor.mobile %></td>
         <td><%= doctor.contact_preference %></td>
         <td><%= doctor.notification_group %></td>
 
         <td><%= link_to 'Show', doctor %></td>
+
+            <% if current_doctor.admin == true || current_doctor.name == doctor.name %>
         <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
         <td><%= link_to 'Destroy', doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <% end %>
+
       </tr>
     <% end %>
   </tbody>

@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Locations</h1>
-
+You are:<%= @current_doctor.name %><br>
+Admin:<%= @current_doctor.admin %>
 <div class="container">
 <table class="table table-striped">
   <thead>
@@ -16,8 +17,10 @@
       <tr>
         <td><%= location.name %></td>
         <td><%= link_to 'Show', location %></td>
+            <% if current_doctor.admin == true  %>
         <td><%= link_to 'Edit', edit_location_path(location) %></td>
         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

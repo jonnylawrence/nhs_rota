@@ -12,16 +12,16 @@
   <% end %>
 
 
-<div class="field">
-   <%= f.label "Location" %>
-   <%= f.collection_select(:location_id, Location.all, :id, :name,{}, {:style => "width:200px"}) %>
- </div>
-
+<!-- <div class="field"> -->
+   <!-- <%= f.collection_select(:location_id, Location.all, :id, :name,{}, {:style => "width:200px"}) %> -->
+<H2><%= rotum.location.name %></H2>
+ <!-- </div> -->
   <div class="field">
-    <%= f.label :Date %>
-    <%= f.date_select :Date,{}, {:style => "width:100px"} %>
+  <H2>  <%= f.label :Date %>
+    <!-- <%= f.date_select :Date,{}, {:style => "width:100px"} %> -->
+    <%= rotum.Date.strftime("%a %d %b %y") %>
   </div>
-
+</H2>
 <table class="table table-striped">
   <tr>
   <th><%= f.label :First_on_call_day %></th>
@@ -30,7 +30,7 @@
 </tr><tr>
 <td><%= f.collection_select(:First_on_call_day_id, Doctor.all, :id, :name,{}, {:style => "width:300px"}) %></td>
 <td><%= f.radio_button :First_on_call_day_trade, 'true' %></td>
-<td><%= f.radio_button :First_on_call_day_trade, 'false', :checked => true %></td>
+<td><%= f.radio_button :First_on_call_day_trade, 'false' %></td>
 <tr>
 </table>
 
@@ -42,10 +42,20 @@
 </tr><tr>
 <td><%= f.collection_select(:First_on_call_nights_id, Doctor.all, :id, :name,{}, {:style => "width:300px"}) %></td>
 <td><%= f.radio_button :First_on_call_nights_trade, 'true' %></td>
-<td><%= f.radio_button :First_on_call_nights_trade, 'false', :checked => true %></td>
+<td><%= f.radio_button :First_on_call_nights_trade, 'false' %></td>
 <tr>
 </table>
 
+    <!-- <%= f.label :First_on_call_day_trade %> -->
+    <!-- <%= f.select :First_on_call_day_trade, ['false','true'],{}, {:style => "width:100px"} %> -->
+<!-- <%= f.select :First_on_call_day_trade, options_for_select([['No','false'],['Yes','true']]),{}, {:style => "width:100px"} %> -->
+  <!-- </div>
+  <div class="field">
+    <%= f.label :First_on_call_nights %>
+    <%= f.collection_select(:First_on_call_nights_id, Doctor.all, :id, :name,{}, {:style => "width:300px"}) %>
+    <%= f.label :First_on_call_nights_trade %>
+    <%= f.select :First_on_call_nights_trade, options_for_select([['No','false'],['Yes','true']]),{}, {:style => "width:100px"} %>
+  </div> -->
 
   <table class="table table-striped">
     <tr>
@@ -55,7 +65,7 @@
   </tr><tr>
   <td><%= f.collection_select(:Second_on_call_id, Doctor.all, :id, :name,{}, {:style => "width:300px"}) %></td>
   <td><%= f.radio_button :Second_on_call_trade, 'true' %></td>
-  <td><%= f.radio_button :Second_on_call_trade, 'false', :checked => true %></td>
+  <td><%= f.radio_button :Second_on_call_trade, 'false' %></td>
   <tr>
   </table>
 <!--
@@ -75,7 +85,7 @@
     <td>
 <%= f.collection_select(:Consultant_id, Doctor.where('consultant = ?',true), :id, :name,{}, {:style => "width:300px"}) %></td>
   <td><%= f.radio_button :Consultant_trade, 'true' %></td>
-  <td><%= f.radio_button :Consultant_trade, 'false', :checked => true %></td>
+  <td><%= f.radio_button :Consultant_trade, 'false' %></td>
   <tr>
   </table>
 
@@ -87,7 +97,6 @@
   </div> -->
 
   <div class="actions">
-
     <%= f.submit %>
-</div>
+  </div>
 <% end %>
