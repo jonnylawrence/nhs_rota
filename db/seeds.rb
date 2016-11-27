@@ -10,6 +10,7 @@ Location.destroy_all
 Rotum.destroy_all
 Micropost.destroy_all
 
+
 Doctor.create!([
 {
   id: 1,
@@ -131,7 +132,7 @@ name: "Warrington"
 },
 {
   id: 2,
-name: "St Helens/Knowsley"
+name: "Helens/Knowsley"
 },
 {
   id: 3,
@@ -354,3 +355,7 @@ end
 
 
  p "Created #{Rotum.count} rotas"
+
+ Audit.destroy_all
+
+ p "audit cleaned"

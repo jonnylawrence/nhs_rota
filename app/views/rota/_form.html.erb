@@ -22,39 +22,79 @@
     <%= f.date_select :Date,{}, {:style => "width:100px"} %>
   </div>
 
-  <div class="field">
-    <%= f.label :First_on_call_day %>
-    <%= f.collection_select(:First_on_call_day_id, Doctor.all, :id, :name,{}, {:style => "width:300px"}) %>
+<table class="table table-striped">
+  <tr>
+  <th><%= f.label :First_on_call_day %></th>
+  <th><%= label_tag(:First_on_call_day_trade, "Trade session") %></th>
+  <th><%= label_tag(:First_on_call_day_trade, "Do not trade") %></th>
+</tr><tr>
+<td><%= f.collection_select(:First_on_call_day_id, Doctor.all, :id, :name,{}, {:style => "width:300px"}) %></td>
+<td><%= f.radio_button :First_on_call_day_trade, 'true' %></td>
+<td><%= f.radio_button :First_on_call_day_trade, 'false', :checked => true %></td>
+<tr>
+</table>
 
- <!-- <%= label_tag(:First_on_call_day_trade, "Trade session") %>
-<%= radio_button_tag(:First_on_call_day_trade, 'true') %>
-<%= label_tag(:First_on_call_day_trade, "Trade session") %>
-<%= radio_button_tag(:First_on_call_day_trade, 'false') %> -->
+<table class="table table-striped">
+  <tr>
+  <th><%= f.label :First_on_call_nights %></th>
+  <th><%= label_tag(:First_on_call_nights_trade, "Trade session") %></th>
+  <th><%= label_tag(:First_on_call_nights_trade, "Do not trade") %></th>
+</tr><tr>
+<td><%= f.collection_select(:First_on_call_nights_id, Doctor.all, :id, :name,{}, {:style => "width:300px"}) %></td>
+<td><%= f.radio_button :First_on_call_nights_trade, 'true' %></td>
+<td><%= f.radio_button :First_on_call_nights_trade, 'false', :checked => true %></td>
+<tr>
+</table>
 
-    <%= f.label :First_on_call_day_trade %>
+    <!-- <%= f.label :First_on_call_day_trade %> -->
     <!-- <%= f.select :First_on_call_day_trade, ['false','true'],{}, {:style => "width:100px"} %> -->
-<%= f.select :First_on_call_day_trade, options_for_select([['No','false'],['Yes','true']]),{}, {:style => "width:100px"} %>
-  </div>
+<!-- <%= f.select :First_on_call_day_trade, options_for_select([['No','false'],['Yes','true']]),{}, {:style => "width:100px"} %> -->
+  <!-- </div>
   <div class="field">
     <%= f.label :First_on_call_nights %>
     <%= f.collection_select(:First_on_call_nights_id, Doctor.all, :id, :name,{}, {:style => "width:300px"}) %>
     <%= f.label :First_on_call_nights_trade %>
     <%= f.select :First_on_call_nights_trade, options_for_select([['No','false'],['Yes','true']]),{}, {:style => "width:100px"} %>
-  </div>
+  </div> -->
 
+  <table class="table table-striped">
+    <tr>
+    <th><%= f.label :Second_on_call %></th>
+    <th><%= label_tag(:Second_on_call_trade, "Trade session") %></th>
+    <th><%= label_tag(:Second_on_call_trade, "Do not trade") %></th>
+  </tr><tr>
+  <td><%= f.collection_select(:Second_on_call_id, Doctor.all, :id, :name,{}, {:style => "width:300px"}) %></td>
+  <td><%= f.radio_button :Second_on_call_trade, 'true' %></td>
+  <td><%= f.radio_button :Second_on_call_trade, 'false', :checked => true %></td>
+  <tr>
+  </table>
+<!--
   <div class="field">
     <%= f.label :Second_on_call %>
     <%= f.collection_select(:Second_on_call_id, Doctor.all, :id, :name,{}, {:style => "width:300px"}) %>
     <%= f.label :Second_on_call_trade %>
     <%= f.select :Second_on_call_trade, options_for_select([['No','false'],['Yes','true']]),{}, {:style => "width:100px"} %>
-  </div>
+  </div> -->
 
-  <div class="field">
+  <table class="table table-striped">
+    <tr>
+    <th><%= f.label :Consultant %></th>
+    <th><%= label_tag(:Consultant_trade, "Trade session") %></th>
+    <th><%= label_tag(:Consultant_trade, "Do not trade") %></th>
+  </tr><tr>
+    <td>
+<%= f.collection_select(:Consultant_id, Doctor.where('consultant = ?',true), :id, :name,{}, {:style => "width:300px"}) %></td>
+  <td><%= f.radio_button :Consultant_trade, 'true' %></td>
+  <td><%= f.radio_button :Consultant_trade, 'false', :checked => true %></td>
+  <tr>
+  </table>
+
+  <!-- <div class="field">
     <%= f.label :Consultant %>
     <%= f.collection_select(:Consultant_id, Doctor.where('consultant = ?',true), :id, :name,{}, {:style => "width:300px"}) %>
     <%= f.label :Consultant_trade %>
     <%= f.select :Consultant_trade, options_for_select([['No','false'],['Yes','true']]),{}, {:style => "width:100px"} %>
-  </div>
+  </div> -->
 
   <div class="actions">
     <%= f.submit %>

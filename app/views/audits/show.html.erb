@@ -1,0 +1,29 @@
+<h1>Audit</h1>
+<div class="container">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>username</th>
+        <th>action</th>
+        <th>audited changes</th>
+        <th>remote address</th>
+        <th>created at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @audits.each do |audit| %>
+      <tr>
+        <td><%= audit.id %></td>
+        <td><%= audit.username %></td>
+        <td><%= audit.action %></td>
+        <td><%= audit.audited_changes %></td>
+        <td><%= audit.remote_address %></td>
+        <td><%= audit.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
