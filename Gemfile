@@ -31,6 +31,7 @@ gem 'will_paginate'
 gem 'simple_calendar'
 gem 'audited', '~> 4.3'
 gem "rails-observers", github: 'rails/rails-observers'
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -40,7 +41,6 @@ group :development, :test do
   gem 'guard'
   gem 'guard-minitest'
   gem 'railroady'
-gem 'faker'
 gem 'bunny'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

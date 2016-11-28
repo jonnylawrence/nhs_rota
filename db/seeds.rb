@@ -17,122 +17,61 @@ Doctor.create!([
   name: "Locum",
   email: "Locum@yahoo.co.uk",
   consultant: true,
-  mobile: "000-000-000",
+  mobile: "000000000",
   contact_preference: "Email",
   notification_group: "None",
   admin: false,
   password: "locum123",
   password_confirmation: "locum123"
-
-} ,
-{
-id: 2,
-name: "Homer Simpson",
-email: "Homer@yahoo.co.uk",
-consultant: true,
-mobile: "0743-232344",
-contact_preference: "Email",
-notification_group: "None",
-  admin: false,
-password: "jon123",
-password_confirmation: "jon123"
-} ,
-{
-id: 3,
-name: "Jon S",
-email: "jonnylawrence@yahoo.co.uk",
-consultant: true,
-mobile: "0743-999999",
-contact_preference: "SMS",
-notification_group: "None",
-  admin: true,
-password: "jon123",
-password_confirmation: "jon123"
-} ,
-{
-id: 4,
-name: "Margarie Simpson",
-email: "MSimpson@yahoo.co.uk",
-consultant: true,
-mobile: "0743-232344",
-contact_preference: "Email",
-notification_group: "None",
-  admin: false,
-password: "testdoctor",
-password_confirmation: "testdoctor"
-} ,
-{
-id: 5,
-name: "Brian Crazy",
-email: "bcrazy@yahoo.co.uk",
-consultant: true,
-mobile: "0743-232344",
-contact_preference: "Email",
-notification_group: "None",
-  admin: false,
-password: "testdoctor",
-password_confirmation: "testdoctor"
-} ,
-{
-id: 6,
-name: "Colin Baker",
-email: "colin@yahoo.co.uk",
-consultant: false,
-mobile: "0743-232344",
-contact_preference: "Email",
-notification_group: "None",
-  admin: false,
-password: "testdoctor",
-password_confirmation: "testdoctor"
-} ,
-{
-id: 7,
-name: "Daniel Darker",
-email: "dd@yahoo.co.uk",
-consultant: false,
-mobile: "0743-232344",
-contact_preference: "Email",
-notification_group: "None",
-  admin: false,
-password: "testdoctor",
-password_confirmation: "testdoctor"
-} ,
-{
-id: 8,
-name: "Mark Nuts",
-email: "marknuts@yahoo.co.uk",
-consultant: false,
-mobile: "0743-232344",
-contact_preference: "Email",
-notification_group: "None",
-  admin: false,
-password: "testdoctor",
-password_confirmation: "testdoctor"
-} ,
-{
-  id: 9,
-name: "Alice Slasher",
-email: "AliceS@yahoo.co.uk",
-consultant: false,
-mobile: "0743-232344",
-contact_preference: "Email",
-notification_group: "None",
-  admin: false,
-password: "testdoctor",
-password_confirmation: "testdoctor"
-} ,
-{
-  id: 10,
-name: "Mary Popper",
-email: "mpopper@yahoo.co.uk",
-consultant: false,
-mobile: "0743-232344",
-contact_preference: "Email",
-notification_group: "None",
-  admin: false,
-password: "testdoctor",
-password_confirmation: "testdoctor"
+},
+  {
+    id: 2,
+    name: "Jon S",
+    email: "jonnylawrence@yahoo.co.uk",
+    consultant: true,
+    mobile: "0743999999",
+    contact_preference: "SMS",
+    notification_group: "None",
+      admin: true,
+    password: "jon123",
+    password_confirmation: "jon123"
 }])
+
+(3..50).each do |z|
+if z%3 == 0
+  consult = true
+else
+  consult = false
+end
+Doctor.create!([
+{
+  id: z,
+  name: Faker::Name.first_name + " " + Faker::Name.last_name,
+  email: "#{Faker::Internet.user_name}#{z}@#{Faker::Internet.domain_name}",
+  consultant: consult,
+  mobile: "074" + rand(1000000..9999999).to_s,
+  contact_preference: "Email",
+  notification_group: "None",
+  admin: false,
+  password: "test123",
+  password_confirmation: "test123"
+}])
+end
+
+#Doctor.create!([
+# {
+# id: 3,
+# name: "jon sutcliffe5",
+# email: ​"jonnylawrence5@yahoo.co.uk",
+# consultant: true,
+# mobile: "0743-232344",
+# contact_preference: "Email",
+# notification_group: "None",
+# admin: false,
+# password: "jon123",
+# password_confirmation: "jon123"
+# }])
+
 
 p "Created #{Doctor.count} doctors"
 
