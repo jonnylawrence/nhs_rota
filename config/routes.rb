@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get '/audits', to: 'audits#show'
+  get '/showpref', to: 'doctors#showpref'
 #  get '/rota/:id',  to: 'rota#index'
-    resources :locations
-    resources :doctors
+  resources :locations
+  resources :doctors
   resources :rota do
-      resources :microposts
+  resources :microposts
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

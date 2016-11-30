@@ -33,6 +33,53 @@
 </p>
 
 <p>
+  <b>Rota Preferences</b>
+  <table class="table table-bordered">
+    <tr>
+      <th colspan=2>Monday</td>
+      <th colspan=2>Tuesday</td>
+      <th colspan=2>Wednesday</td>
+      <th colspan=2>Thursday</td>
+      <th colspan=2>Friday</td>
+      <th colspan=2>Saturday</td>
+      <th colspan=2>Sunday</td>
+  </tr>
+    <tr>
+      <th>Days</th>
+      <th>Nights</th>
+      <th>Days</th>
+      <th>Nights</th>
+      <th>Days</th>
+      <th>Nights</th>
+      <th>Days</th>
+      <th>Nights</th>
+      <th>Days</th>
+        <th>Nights</th>
+        <th>Days</th>
+        <th>Nights</th>
+        <th>Days</th>
+          <th>Nights</th>
+    </tr>
+    <tr>
+      <td><%= @doctor.monday_days %></td>
+      <td><%= @doctor.monday_nights %></td>
+      <td><%= @doctor.tuesday_days %></td>
+      <td><%= @doctor.tuesday_nights %></td>
+      <td><%= @doctor.wednesday_days %></td>
+      <td><%= @doctor.wednesday_nights %></td>
+      <td><%= @doctor.thursday_days %></td>
+      <td><%= @doctor.thursday_nights %></td>
+      <td><%= @doctor.friday_days %></td>
+      <td><%= @doctor.friday_nights %></td>
+      <td><%= @doctor.saturday_days%></td>
+      <td><%= @doctor.saturday_nights %></td>
+      <td><%= @doctor.sunday_days %></td>
+      <td><%= @doctor.sunday_nights %></td>
+    </tr>
+  </table>
+</p>
+
+<p>
   <strong>Contact Preference:</strong>
   <%= @doctor.contact_preference %>
 </p>

@@ -21,6 +21,20 @@ Doctor.create!([
   contact_preference: "Email",
   notification_group: "None",
   admin: false,
+  monday_days: false,
+  monday_nights: false,
+  tuesday_days: false,
+  tuesday_nights: false,
+  wednesday_days: false,
+  wednesday_nights: false,
+  thursday_days: false,
+  thursday_nights: false,
+  friday_days: false,
+  friday_nights: false,
+  saturday_days: true,
+  saturday_nights: true,
+  sunday_days: true,
+  sunday_nights: true,
   password: "locum123",
   password_confirmation: "locum123"
 },
@@ -33,11 +47,25 @@ Doctor.create!([
     contact_preference: "SMS",
     notification_group: "None",
       admin: true,
+      monday_days: false,
+      monday_nights: false,
+      tuesday_days: true,
+      tuesday_nights: true,
+      wednesday_days: true,
+      wednesday_nights: true,
+      thursday_days: false,
+      thursday_nights: false,
+      friday_days: false,
+      friday_nights: false,
+      saturday_days: false,
+      saturday_nights: false,
+      sunday_days: false,
+      sunday_nights: false,
     password: "jon123",
     password_confirmation: "jon123"
 }])
 
-(3..50).each do |z|
+(3..20).each do |z|
 if z%3 == 0
   consult = true
 else
@@ -53,6 +81,20 @@ Doctor.create!([
   contact_preference: "Email",
   notification_group: "None",
   admin: false,
+  monday_days: rand(2) == 1 ? true : false,
+  monday_nights: rand(2) == 1 ? true : false,
+  tuesday_days: rand(2) == 1 ? true : false,
+  tuesday_nights: rand(2) == 1 ? true : false,
+  wednesday_days: rand(2) == 1 ? true : false,
+  wednesday_nights: rand(2) == 1 ? true : false,
+  thursday_days: rand(2) == 1 ? true : false,
+  thursday_nights: rand(2) == 1 ? true : false,
+  friday_days: rand(2) == 1 ? true : false,
+  friday_nights: rand(2) == 1 ? true : false,
+  saturday_days: rand(2) == 1 ? true : false,
+  saturday_nights: rand(2) == 1 ? true : false,
+  sunday_days: rand(2) == 1 ? true : false,
+  sunday_nights: rand(2) == 1 ? true : false,
   password: "test123",
   password_confirmation: "test123"
 }])

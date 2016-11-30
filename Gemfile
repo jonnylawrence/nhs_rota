@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
-gem 'capistrano-rails', group: :development
+gem 'capistrano-rails'
 gem 'will_paginate'
 gem 'simple_calendar'
 gem 'audited', '~> 4.3'
@@ -56,7 +56,7 @@ group :development do
   gem 'capistrano3-puma'
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
-  gem 'capistrano-rvm'  
+  gem 'capistrano-rvm'
 gem 'spring-watcher-listen', '~> 2.0.0'
 end
 

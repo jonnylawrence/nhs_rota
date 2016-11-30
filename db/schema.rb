@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127114009) do
+ActiveRecord::Schema.define(version: 20161130193655) do
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
@@ -45,6 +45,20 @@ ActiveRecord::Schema.define(version: 20161127114009) do
     t.string   "notification_group"
     t.boolean  "consultant"
     t.boolean  "admin"
+    t.boolean  "monday_days"
+    t.boolean  "monday_nights"
+    t.boolean  "tuesday_days"
+    t.boolean  "tuesday_nights"
+    t.boolean  "wednesday_days"
+    t.boolean  "wednesday_nights"
+    t.boolean  "thursday_days"
+    t.boolean  "thursday_nights"
+    t.boolean  "friday_days"
+    t.boolean  "friday_nights"
+    t.boolean  "saturday_days"
+    t.boolean  "saturday_nights"
+    t.boolean  "sunday_days"
+    t.boolean  "sunday_nights"
   end
 
   create_table "doctors_rota", id: false, force: :cascade do |t|

@@ -41,6 +41,53 @@
     <%= f.text_field :notification_group %>
   </div>
 
+  <div class="field">
+    <b>Rota Preferences</b>
+    <table class="table table-bordered">
+      <tr>
+        <th colspan=2>Monday</td>
+        <th colspan=2>Tuesday</td>
+        <th colspan=2>Wednesday</td>
+        <th colspan=2>Thursday</td>
+        <th colspan=2>Friday</td>
+        <th colspan=2>Saturday</td>
+        <th colspan=2>Sunday</td>
+    </tr>
+      <tr>
+        <th>Days</th>
+        <th>Nights</th>
+        <th>Days</th>
+        <th>Nights</th>
+        <th>Days</th>
+        <th>Nights</th>
+        <th>Days</th>
+        <th>Nights</th>
+        <th>Days</th>
+          <th>Nights</th>
+          <th>Days</th>
+          <th>Nights</th>
+          <th>Days</th>
+            <th>Nights</th>
+      </tr>
+      <tr>
+        <td><%= f.check_box :monday_days, {}, true, false %></td>
+        <td><%= f.check_box :monday_nights, {}, true, false %></td>
+        <td><%= f.check_box :tuesday_days, {}, true, false %></td>
+        <td><%= f.check_box :tuesday_nights, {}, true, false %></td>
+        <td><%= f.check_box :wednesday_days, {}, true, false %></td>
+        <td><%= f.check_box :wednesday_nights, {}, true, false %></td>
+        <td><%= f.check_box :thursday_days, {}, true, false %></td>
+        <td><%= f.check_box :thursday_nights, {}, true, false %></td>
+        <td><%= f.check_box :friday_days, {}, true, false %></td>
+        <td><%= f.check_box :friday_nights, {}, true, false %></td>
+        <td><%= f.check_box :saturday_days, {}, true, false %></td>
+        <td><%= f.check_box :saturday_nights, {}, true, false %></td>
+        <td><%= f.check_box :sunday_days, {}, true, false %></td>
+        <td><%= f.check_box :sunday_nights, {}, true, false %></td>
+      </tr>
+    </table>
+  </div>
+
     <% if current_doctor.admin == true %>
   <div class="field">
     <%= f.label :admin %>

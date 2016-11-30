@@ -14,6 +14,23 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.find(params[:id])
   end
 
+  def showpref
+    @monday_days = Doctor.where('monday_days = ?',true).count
+    @monday_nights = Doctor.where('monday_nights = ?',true).count
+    @tuesday_days = Doctor.where('tuesday_days = ?',true).count
+    @tuesday_nights = Doctor.where('tuesday_nights = ?',true).count
+    @wednesday_days = Doctor.where('wednesday_days = ?',true).count
+    @wednesday_nights = Doctor.where('wednesday_nights = ?',true).count
+    @thursday_days = Doctor.where('thursday_days = ?',true).count
+    @thursday_nights = Doctor.where('thursday_nights = ?',true).count
+    @friday_days = Doctor.where('friday_days = ?',true).count
+    @friday_nights = Doctor.where('friday_nights = ?',true).count
+    @saturday_days = Doctor.where('saturday_days = ?',true).count
+    @saturday_nights = Doctor.where('saturday_nights = ?',true).count
+    @sunday_days = Doctor.where('sunday_days = ?',true).count
+    @sunday_nights = Doctor.where('sunday_nights = ?',true).count
+  end
+
   # GET /doctors/new
   def new
     @doctor = Doctor.new
@@ -77,6 +94,10 @@ class DoctorsController < ApplicationController
       params.require(:doctor).permit(:name, :email, :password,
                              :password_confirmation, :consultant,
                              :mobile, :contact_preference, :notification_group,
-                             :admin)
+                             :admin, :monday_days, :monday_nights, :tuesday_days,
+                             :tuesday_nights, :wednesday_days, :wednesday_nights,
+                             :thursday_days, :thursday_nights, :friday_days,
+                             :friday_nights, :saturday_days, :saturday_nights,
+                             :sunday_days, :sunday_nights)
     end
 end
