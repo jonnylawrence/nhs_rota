@@ -1,6 +1,5 @@
 # config valid only for current version of Capistrano
 #lock '3.6.1'
-
 set :log_level,     :debug
 set :application, 'nhs_rota'
 set :deploy_user, 'ec2-user'
@@ -55,38 +54,3 @@ set :puma_workers, 0
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true
 set :puma_preload_app, false
-
-# set :format,        :pretty
-
-namespace :deploy do
-  desc "Make sure local git is in sync with remote."
-  task :check_revision do
-    on roles(:app) do
-      unless `git rev-parse HEAD` == `git rev-parse origin2/master`
-        puts "WARNING: HEAD is not the same as origin2/master"
-        puts "Run `git push` to sync changes."
-        exit
-      end
-    end
-  end
-
-  desc 'Initial Deploy'
-  task :initial do
-    on roles(:app) do
-      before 'deploy:restart', 'puma:start'
-      invoke 'deploy'
-    end
-  end
-
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'puma:restart'
-    end
-  end
-
-  before :starting,     :check_revision
-  after  :finishing,    :compile_assets
-  after  :finishing,    :cleanup
-  after  :finishing,    :restart
-end
