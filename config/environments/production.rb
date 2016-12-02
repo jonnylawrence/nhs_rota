@@ -1,5 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+server 'ec2-54-187-84-56.us-west-2.compute.amazonaws.com', user: 'ec2-user'
 
   # Code is not reloaded between requests.
   config.cache_classes = true
