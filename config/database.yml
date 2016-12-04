@@ -21,5 +21,13 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+#  <<: *default
+#  database: db/production.sqlite3
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: rota_production
+  username: rhs_rota
+  password: nhs_rota
+  host: localhost
+  port: 5432

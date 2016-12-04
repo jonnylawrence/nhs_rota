@@ -1,1 +1,1 @@
-ssh -i "jon aws linux.pem" ec2-user@ec2-54-203-21-124.us-west-2.compute.amazonaws.com
+ssh -i "jon aws linux.pem" ec2-user@ec2-54-203-19-133.us-west-2.compute.amazonaws.com

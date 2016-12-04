@@ -2,12 +2,11 @@
 # Load DSL and Setup Up Stages
 require 'capistrano/setup'
 require 'capistrano/deploy'
-
-require 'capistrano/rails'
 require 'capistrano/bundler'
+require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano/rvm'
-require 'capistrano/puma'
+#require 'capistrano/puma'
 
 set :ssh_options, {:forward_agent => true}
 #set :deploy_via, :copy

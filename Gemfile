@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'figaro'
+gem 'listen', '~> 3.0.5'
 
 gem 'bootstrap-sass'
 # Use Puma as the app server
@@ -25,8 +26,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
-# Use Capistrano for deployment
 gem 'will_paginate'
 gem 'simple_calendar'
 gem 'audited', '~> 4.3'
@@ -49,14 +48,14 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
-  gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-    gem 'capistrano',         require: false
-    gem 'capistrano-rvm',     require: false
+ ##   gem 'capistrano',         require: false
+ #   gem 'capistrano-faster-assets'
+ #   gem 'capistrano-rvm',     r
     gem 'capistrano-rails',   require: false
-    gem 'capistrano-bundler', require: false
-    gem 'capistrano3-puma',   require: false
+#    gem 'capistrano-bundler', require: false
+#    gem 'capistrano3-puma',   require: false
 gem 'spring-watcher-listen', '~> 2.0.0'
 end
 

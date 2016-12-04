@@ -1,6 +1,6 @@
 Rails.application.configure do
+
   # Settings specified here will take precedence over those in config/application.rb.
-server 'ec2-54-187-84-56.us-west-2.compute.amazonaws.com', user: 'ec2-user'
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -20,7 +20,7 @@ server 'ec2-54-187-84-56.us-west-2.compute.amazonaws.com', user: 'ec2-user'
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  # config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
