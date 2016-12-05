@@ -138,15 +138,15 @@ name: "Cross CAMHS"
  p "Created #{Location.count} locations"
 
 (1..3).each do |i|
-  (21..30).each do |dd|
- Rotum.create!([{Date: "2016/11/#{dd}",
+  (5..31).each do |dd|
+ Rotum.create!([{Date: "2016/12/#{dd}",
   location_id: i,
    First_on_call_day_id: 1 + rand(10),
    First_on_call_day_trade: "false"}])
  end
 end
-  (21..30).each do |dd|
- Rotum.create!([{Date: "2016/11/#{dd}",
+  (5..31).each do |dd|
+ Rotum.create!([{Date: "2016/12/#{dd}",
    location_id: 4,
    First_on_call_nights_id: 1 + rand(10),
    Second_on_call_id: 1 + rand(10),
