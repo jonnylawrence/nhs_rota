@@ -6,7 +6,8 @@
 # server 'example.com', user: 'deploy', roles: %w{app db web}, my_property: :my_value
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
-server 'ec2-54-203-19-133.us-west-2.compute.amazonaws.com', user: 'ec2-user'
+server 'ec2-54-202-228-112.us-west-2.compute.amazonaws.com', user: 'ec2-user'
+set :puma_bind,       "unix://var/www/nhs_scheduler/puma.sock"
 
 
 

@@ -40,28 +40,27 @@ group :development, :test do
   gem 'guard'
   gem 'guard-minitest'
   gem 'railroady'
-gem 'bunny'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+  gem 'bunny'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
- ##   gem 'capistrano',         require: false
- #   gem 'capistrano-faster-assets'
- #   gem 'capistrano-rvm',     r
-    gem 'capistrano-rails',   require: false
-#    gem 'capistrano-bundler', require: false
-#    gem 'capistrano3-puma',   require: false
-gem 'spring-watcher-listen', '~> 2.0.0'
+    gem 'capistrano'
+    gem 'capistrano-faster-assets'
+    gem 'capistrano-rvm'
+    gem 'capistrano-rails'
+    gem 'capistrano-bundler'
+    gem 'capistrano3-puma'
+    gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 # heroku uses postgresql database for production
 group :production do
-gem 'pg'
+   gem 'pg'
 end
 
 
