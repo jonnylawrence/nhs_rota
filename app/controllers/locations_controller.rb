@@ -4,8 +4,11 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-      @current_doctor ||= Doctor.find_by(id: session[:doctor_id])
+    @current_doctor ||= Doctor.find_by(id: session[:doctor_id])
     @locations = Location.all
+    respond_to do |format|
+        format.json { render :json => @locations }
+    end
   end
 
   # GET /locations/1

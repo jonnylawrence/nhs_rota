@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'figaro'
 gem 'listen', '~> 3.0.5'
-   gem 'sqlite3'
 
 gem 'bootstrap-sass'
 # Use Puma as the app server
