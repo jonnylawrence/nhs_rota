@@ -6,8 +6,10 @@ class LocationsController < ApplicationController
   def index
     @current_doctor ||= Doctor.find_by(id: session[:doctor_id])
     @locations = Location.all
-    respond_to do |format|
-        format.json { render :json => @locations }
+
+     respond_to do |format|
+         format.json { render :json => @locations }
+         format.html
     end
   end
 
